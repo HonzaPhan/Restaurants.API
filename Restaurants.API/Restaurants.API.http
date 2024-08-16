@@ -1,0 +1,92 @@
+@host = https://localhost
+@port = 5230
+@token = CfDJ8JQ2gj-9H01HinLVZS3-734vGAN5-j_ASfds3SfbnKc5nWY62_rR5dfV2fSxjROO9Ym9JxVZrtkBnqryC7sqHWVE3QSx0RZd9Ku8dPoxdAOHK4BZBJae-XJo0HfHqvX13axvfx8cwASEWvQZyknLl-c8SH4OMumjufywUegX_0OCFfdFh42njiD5h3UC5BM-fJL59Dlsc3guOYKepVDtZ_QlFy69GoLmyYtaFNeNHoZ7_2hVpXas97zRahb_fLU1nwCtGFugExyILImM4weVSuf4yWuQWXTfQ_KzYfTGeZKLsFlMse785WqPui4vN4vqbUDmbs_fThH_0U6nauisDgAnfsTfZyswUdWt94VVOMJUk1cxSjzW38Xet_M49Kh0hLpRX3ws2GCpDD1dwiQtqe6O7PNzo82Ms3s7KdFJAtsgrt7bZ921_m_-bVg-_bdLAMrEP7wVC8dvhvJrWU3X_KlfsOEvhpBkOhvaTkxea4U_FCZckVW0VhTLbO1g0TXI4eXsUBi2l-EfRZouZ4nKtrrCTsQGg2Wz1ZIwgTofQ9UI5V5bw3JF_Y508Ya4gKQGOG8McWjdSxTN0PzxTfvDWRujmX6lTMUhH7crVA3wxJVNFeHB2y9JP_N-xoMayeeITU5JkEv6a2nRmZfE7O417zVOOIqtqP_l9ZlVMzmyeJA9_ENjcefmjBYZ7UsYyNMT6A
+
+@Restaurants.API_HostAddress = http://localhost:5230
+
+###
+GET {{Restaurants.API_HostAddress}}/api/restaurants
+Authorization: Bearer {{token}}
+
+###
+GET {{Restaurants.API_HostAddress}}/api/restaurants/3
+
+
+###
+DELETE {{Restaurants.API_HostAddress}}/api/restaurants/1006
+
+
+###
+POST {{Restaurants.API_HostAddress}}/api/restaurants
+Content-Type: application/json
+
+{
+      "Name": "Tasty Tests",
+      "Description": "A cozy restaurant serving a variety of delicious dishes.",
+      "Category": "Indian",
+      "HasDelivery": true,
+      "ContactEmail": "info@test.com",
+      "ContactNumber": "555-1234",
+      "City": "New York",
+      "Street": "123 Main Street",
+      "PostalCode": "10-010"
+}
+
+###
+GET https://localhost:7005/api/restaurants/1007
+
+
+###
+PATCH {{Restaurants.API_HostAddress}}/api/restaurants/4
+Content-Type: application/json
+
+{
+  "Id": 4,
+  "Name": "Five Guys",
+  "Description": "Five Guys Enterprises LLC (doing business as Five Guys Burgers and Fries) is an American fast casual restaurant chain focused on hamburgers, hot dogs, and French fries.",
+  "HasDelivery": false
+}
+
+###
+POST {{Restaurants.API_HostAddress}}/api/restaurants/4/dishes
+Content-Type: application/json
+
+{
+  "Name": "French Fries",
+  "Description": "Freshly made boardwalk-style fries, cooked in pure, cholesterol-free, 100% peanut oil. Cut fresh and cooked twice – firm on the outside and mashed potato on the inside.",
+  "Price":  10,
+  "KiloCalories": 1300
+}
+
+###
+GET {{Restaurants.API_HostAddress}}/api/restaurants/4/dishes
+
+###
+GET {{Restaurants.API_HostAddress}}/api/restaurants/1/dishes/1
+
+###
+DELETE {{Restaurants.API_HostAddress}}/api/restaurants/33/dishes
+
+###
+DELETE {{Restaurants.API_HostAddress}}/api/restaurants/4/dishes/1
+
+###
+GET https://localhost:7193/api/restaurants/4/Dishes/9
+
+###
+POST {{Restaurants.API_HostAddress}}/api/identity/register
+Content-Type: application/json
+
+{
+  "email": "user@user.com",
+  "password": "MockPass123*"
+}
+
+###
+POST {{Restaurants.API_HostAddress}}/api/identity/login
+Content-Type: application/json
+
+{
+  "email": "test@user.com",
+  "password": "MockPass123*"
+}
